@@ -5,16 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:note"
         mc:Ignorable="d"
-        Title="Notes" Height="550" Width="400">
+        Title="Notes" Height="550" Width="400" Loaded="Window_Loaded">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="45*"/>
-            <ColumnDefinition Width="53*"/>
-        </Grid.ColumnDefinitions>
-        <DataGrid x:Name="Notes" Grid.ColumnSpan="2">
+        <DataGrid x:Name="dgNotesList" Grid.ColumnSpan="2" AutoGeneratreCollums="False">
             <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="False" Header="What should be done" Width="300" FontSize="23"/>
-                <DataGridCheckBoxColumn IsReadOnly="False" Header="Done" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path = IsDone}" IsReadOnly="False" Header="What should be done" Width="300" FontSize="23"/>
+                <DataGridCheckBoxColumn Binding="{Binding Path = Text}" IsReadOnly="False" Header="Done" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
